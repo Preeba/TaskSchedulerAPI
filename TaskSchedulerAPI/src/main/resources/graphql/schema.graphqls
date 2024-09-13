@@ -1,0 +1,50 @@
+type Task {
+    id: ID!
+    name: String!
+    description: String
+    priority: Int!
+    status: TaskStatus!
+    nextExecutionTime: DateTime
+    recurrence: RecurrenceSchedule
+    dependencies: [Task!]
+    depender: [Task!]
+}
+
+enum RecurrenceSchedule {
+    DAILY
+    WEEKLY
+    MONTHLY
+    CUSTOM
+}
+
+enum TaskStatus {
+    PENDING
+    IN_PROGRESS
+    COMPLETED
+    FAILED
+}
+
+input TaskInput {
+    name: String!
+    description: String
+    priority: Int!
+    recurrence: RecurrenceSchedule
+    dependencyIds: [ID!]
+}
+
+type Query {
+    task(id: ID!): Task
+    tasks(status: TaskStatus): [Task!]!
+    nextTaskToExecute: Task
+}
+
+type Mutation {
+    createTask(input: TaskInput!): Task!
+    updateTask(id: ID!, input: TaskInput!): Task!
+    deleteTask(id: ID!): Boolean!
+    markTaskCompleted(id: ID!): Task!
+    rescheduleTask(id: ID!, nextExecutionTime: DateTime!): Task!
+}
+
+#static graphql.schema.GraphQLScalatType DataTime;
+scalar DateTime

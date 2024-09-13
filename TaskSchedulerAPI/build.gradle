@@ -18,7 +18,11 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok:1.18.30' // Latest version
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
-    implementation 'org.modelmapper:modelmapper:3.1.1'
+
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0'
+    implementation 'com.graphql-java-kickstart:playground-spring-boot-starter:11.0.0'
+
+    implementation 'com.graphql-java:graphql-java-extended-scalars:22.0'
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
