@@ -32,4 +32,18 @@ public class TaskRepository { // An in-memory repository
             return new ArrayList<>(taskStore.values());
         }
     }
+
+    public Set<Task> findAllByIds(Set<String> dependencyIds) {
+        return dependencyIds.stream()
+                .map(taskStore::get)
+                .collect(Collectors.toSet());
+    }
+
+    public Optional<Task> findById(String taskId) {
+        return taskStore.values().stream().filter(taskId::equals).findFirst();
+    }
+
+    public Optional<Task> findFirst() {
+        return taskStore.values().stream().findFirst();
+    }
 }

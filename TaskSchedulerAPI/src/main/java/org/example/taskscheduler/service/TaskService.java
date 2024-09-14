@@ -1,5 +1,6 @@
 package org.example.taskscheduler.service;
 
+import org.example.taskscheduler.input.TaskInput;
 import org.example.taskscheduler.model.RecurrenceSchedule;
 import org.example.taskscheduler.model.Task;
 import org.example.taskscheduler.model.TaskStatus;
@@ -37,9 +38,6 @@ public class TaskService {
     public List<Task> getTasks(TaskStatus status) {
         System.out.println("Fetching tasks with status: " + status);
         return taskRepository.findAllTasks(Optional.ofNullable(status));
-//        return tasks.values().stream()
-//                .filter(t -> status == null || t.getStatus().equals(status))
-//                .collect(Collectors.toList());
     }
 
     public Task getNextTaskToExecute() {
@@ -48,12 +46,20 @@ public class TaskService {
                 .findFirst().orElse(null);
     }
 
-    public Task createTask(Task task) {
-        Task savedTask = taskRepository.save(task);
-        if (savedTask == null) {
-            throw new RuntimeException("Error saving task");
+    public Task createTask(TaskInput taskInput) {
+        Task task = new Task();
+        task.setName(taskInput.getName());
+        task.setDescription(taskInput.getDescription());
+        task.setPriority(taskInput.getPriority());
+        task.setRecurrence(taskInput.getRecurrence());
+        // Handle dependencies - Create an empty set if no dependencies provided
+        Set<Task> dependencies = new HashSet<Task>();
+        if (taskInput.getDependencyIds() != null) {
+            dependencies = taskRepository.findAllByIds(taskInput.getDependencyIds());
         }
-        return savedTask;
+        task.setDependencies(dependencies);
+
+        return taskRepository.save(task);
     }
 
     public Task updateTask(String id, Task task) {

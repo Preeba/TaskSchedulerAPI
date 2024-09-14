@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -35,7 +36,6 @@ class TaskResolverTest {
         assertNotNull(result);
         assertEquals("Test Task", result.getName());
         assertEquals(TaskStatus.PENDING, result.getStatus());
-
     }
 
     @Test
@@ -55,10 +55,10 @@ class TaskResolverTest {
 
     @Test
     void testCreateTask() {
-        TaskInput input = new TaskInput("New Task", "New description", 3, RecurrenceSchedule.MONTHLY);
+        TaskInput input = new TaskInput("New Task", "New description", 3, RecurrenceSchedule.MONTHLY, Set.of("1", "2"));
         Task createdTask = new Task("3", "New Task", "New description", 3, TaskStatus.PENDING, null, RecurrenceSchedule.MONTHLY, null, null);
 
-        when(taskService.createTask(any(Task.class))).thenReturn(createdTask);
+        when(taskService.createTask(any(TaskInput.class))).thenReturn(createdTask);
 
         Task result = resolver.createTask(input);
 

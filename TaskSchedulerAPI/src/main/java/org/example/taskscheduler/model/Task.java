@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -18,6 +21,6 @@ public class Task {
     private TaskStatus status;
     private LocalDateTime nextExecutionTime;
     private RecurrenceSchedule recurrence;
-    private List<Task> dependencies;
-    private List<Task> depender;
+    private Set<Task> dependencies = new HashSet<Task>();
+    private Set<Task> depender = new HashSet<>();
 }
