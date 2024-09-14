@@ -3,6 +3,8 @@ package org.example.taskscheduler.service;
 import org.example.taskscheduler.model.RecurrenceSchedule;
 import org.example.taskscheduler.model.Task;
 import org.example.taskscheduler.model.TaskStatus;
+import org.example.taskscheduler.repository.TaskRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,14 +17,17 @@ public class TaskService {
     // Inject Task Repository once database is initialized and configured
     // Constructor to pre-populate some tasks for testing purposes
     private final Map<String, Task> tasks = new HashMap<String, Task>();
-    public TaskService() {
-        // Add some sample tasks
-        Task task1 = new Task("1", "Task 1", "Desc 1", 1, TaskStatus.PENDING, LocalDateTime.now().minusDays(2), RecurrenceSchedule.DAILY, new ArrayList<>(), new ArrayList<>());
-        Task task2 = new Task("2", "Task 2", "Description 2", 2, TaskStatus.IN_PROGRESS, LocalDateTime.now().plusDays(1), RecurrenceSchedule.WEEKLY, new ArrayList<>(), new ArrayList<>());
+    @Autowired
+    private TaskRepository taskRepository;
 
-        tasks.put(task1.getId(), task1);
-        tasks.put(task2.getId(), task2);
-    }
+//    public TaskService() {
+//        // Add some sample tasks
+//        Task task1 = new Task("1", "Task 1", "Desc 1", 1, TaskStatus.PENDING, LocalDateTime.now().minusDays(2), RecurrenceSchedule.DAILY, new ArrayList<>(), new ArrayList<>());
+//        Task task2 = new Task("2", "Task 2", "Description 2", 2, TaskStatus.IN_PROGRESS, LocalDateTime.now().plusDays(1), RecurrenceSchedule.WEEKLY, new ArrayList<>(), new ArrayList<>());
+//
+//        tasks.put(task1.getId(), task1);
+//        tasks.put(task2.getId(), task2);
+//    }
 
 
     public Task getTaskById(String id) {
@@ -30,9 +35,11 @@ public class TaskService {
     }
 
     public List<Task> getTasks(TaskStatus status) {
-        return tasks.values().stream()
-                .filter(t -> status == null || t.getStatus().equals(status))
-                .collect(Collectors.toList());
+        System.out.println("Fetching tasks with status: " + status);
+        return taskRepository.findAllTasks(Optional.ofNullable(status));
+//        return tasks.values().stream()
+//                .filter(t -> status == null || t.getStatus().equals(status))
+//                .collect(Collectors.toList());
     }
 
     public Task getNextTaskToExecute() {
@@ -42,9 +49,11 @@ public class TaskService {
     }
 
     public Task createTask(Task task) {
-        task.setId(UUID.randomUUID().toString());
-        tasks.put(task.getId(), task);
-        return task;
+        Task savedTask = taskRepository.save(task);
+        if (savedTask == null) {
+            throw new RuntimeException("Error saving task");
+        }
+        return savedTask;
     }
 
     public Task updateTask(String id, Task task) {
