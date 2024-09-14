@@ -11,6 +11,8 @@ build/
 .idea/libraries/
 .idea/gradle.xml
 .idea/workspace.xml
+.idea/shelf/**
+.idea/shelf
 *.iws
 *.iml
 *.ipr
