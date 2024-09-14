@@ -6,8 +6,8 @@ type Task {
     status: TaskStatus!
     nextExecutionTime: DateTime
     recurrence: RecurrenceSchedule
-    dependencies: [Task!]
-    depender: [Task!]
+    dependencies: [Task]
+    depender: [Task]
 }
 
 enum RecurrenceSchedule {
@@ -29,12 +29,12 @@ input TaskInput {
     description: String
     priority: Int!
     recurrence: RecurrenceSchedule
-    dependencyIds: [ID!]
+    dependencyIds: [ID]
 }
 
 type Query {
     task(id: ID!): Task
-    tasks(status: TaskStatus): [Task!]!
+    tasks(status: TaskStatus): [Task]
     nextTaskToExecute: Task
 }
 

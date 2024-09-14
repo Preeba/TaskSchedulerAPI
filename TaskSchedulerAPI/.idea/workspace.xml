@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5aef6d-86c0-469d-905c-4e9109813018" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/taskscheduler/service/TaskServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/config/SampleDataLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/input/TaskInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/input/TaskInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/resolver/TaskResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/resolver/TaskResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/graphql/schema.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/graphql/schema.graphqls" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +64,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,7 +89,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Gradle.TaskSchedulerAPI [:TaskSchedulerApplication.main()].executor": "Run",
+    "Gradle.TaskSchedulerAPI [:TaskSchedulerApplication.main()].executor": "Debug",
     "Gradle.TaskSchedulerAPI [build].executor": "Run",
     "Gradle.TaskSchedulerAPI [clean].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -195,9 +200,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.TaskResolverTest" />
         <item itemvalue="Gradle.TaskSchedulerAPI [build]" />
         <item itemvalue="Gradle.TaskSchedulerAPI [clean]" />
+        <item itemvalue="Gradle.TaskResolverTest" />
         <item itemvalue="Application.TaskSchedulerApplication" />
       </list>
     </recent_temporary>
@@ -225,6 +230,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -233,6 +239,26 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/TaskSchedulerApplication.java</url>
           <line>7</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/repository/TaskRepository.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/resolver/TaskResolver.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/service/TaskService.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/repository/TaskRepository.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

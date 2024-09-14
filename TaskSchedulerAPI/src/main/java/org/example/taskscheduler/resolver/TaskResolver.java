@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class TaskResolver implements GraphQLQueryResolver, GraphQLMutationResolver {
@@ -37,7 +38,12 @@ public class TaskResolver implements GraphQLQueryResolver, GraphQLMutationResolv
         task.setPriority(input.getPriority());
         task.setRecurrence(input.getRecurrence());
         // Handle dependencies
-        return taskService.createTask(task);
+        Task savedTask = taskService.createTask(task);
+        // Ensure the savedTask is not null
+        if (savedTask == null) {
+            throw new RuntimeException("Failed to create task");
+        }
+        return savedTask;
     }
 
     public Task updateTask(String id, TaskInput input) {
