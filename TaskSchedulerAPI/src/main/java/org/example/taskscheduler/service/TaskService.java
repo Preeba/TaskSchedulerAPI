@@ -1,7 +1,6 @@
 package org.example.taskscheduler.service;
 
 import org.example.taskscheduler.input.TaskInput;
-import org.example.taskscheduler.model.RecurrenceSchedule;
 import org.example.taskscheduler.model.Task;
 import org.example.taskscheduler.model.TaskStatus;
 import org.example.taskscheduler.repository.TaskRepository;
@@ -10,14 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class TaskService {
 
     // Inject Task Repository once database is initialized and configured
     // Constructor to pre-populate some tasks for testing purposes
-    private final Map<String, Task> tasks = new HashMap<String, Task>();
+   // private final Map<String, Task> tasks = new HashMap<String, Task>();
     @Autowired
     private TaskRepository taskRepository;
 
@@ -31,19 +29,20 @@ public class TaskService {
 //    }
 
 
-    public Task getTaskById(String id) {
-        return tasks.get(id);
+    public Task getTaskById(Long id) {
+        return taskRepository.findById(id).orElse(null);
     }
 
     public List<Task> getTasks(TaskStatus status) {
         System.out.println("Fetching tasks with status: " + status);
-        return taskRepository.findAllTasks(Optional.ofNullable(status));
+        return taskRepository.findByStatus(status);
     }
 
     public Task getNextTaskToExecute() {
-        return tasks.values().stream()
-                .filter(task -> task.getStatus() == TaskStatus.PENDING)
-                .findFirst().orElse(null);
+        return null;
+//        return tasks.values().stream()
+//                .filter(task -> task.getStatus() == TaskStatus.PENDING)
+//                .findFirst().orElse(null);
     }
 
     public Task createTask(TaskInput taskInput) {
@@ -54,44 +53,53 @@ public class TaskService {
         task.setRecurrence(taskInput.getRecurrence());
         // Handle dependencies - Create an empty set if no dependencies provided
         Set<Task> dependencies = new HashSet<Task>();
-        if (taskInput.getDependencyIds() != null) {
-            dependencies = taskRepository.findAllByIds(taskInput.getDependencyIds());
-        }
+//        if (taskInput.getDependencyIds() != null) {
+//            dependencies = taskRepository.findAllByIds(taskInput.getDependencyIds());
+//        }
         task.setDependencies(dependencies);
 
         return taskRepository.save(task);
     }
 
-    public Task updateTask(String id, Task task) {
+    public Task updateTask(Long id, Task task) {
         // Update task and return the updated task
-        Task currentTask = tasks.get(id);
-        if (currentTask != null) {
-            task.setId(id);
-            tasks.put(id, task);
-        }
-        return task;
+//        Task currentTask = tasks.get(id);
+//        if (currentTask != null) {
+//            task.setId(id);
+//            tasks.put(id, task);
+//        }
+//        return task;
+        return null;
     }
 
-    public boolean deleteTask(String id) {
-        return tasks.remove(id) != null;
+    public boolean deleteTask(Long id) {
+        taskRepository.deleteById(id);
+        return true;
     }
 
     // Mark the task as completed and return it
-    public Task markTaskCompleted(String id) {
-        Task task = tasks.get(id);
-        if (task != null) {
-            task.setStatus(TaskStatus.COMPLETED);
-        }
+    public Task markTaskCompleted(Long id) {
+        Task task = taskRepository.findById(id).orElse(null);
+        task.setStatus(TaskStatus.COMPLETED);
         return task;
+//        Task task = tasks.get(id);
+//        if (task != null) {
+//            task.setStatus(TaskStatus.COMPLETED);
+//        }
+//        return task;
     }
 
     // Reschedule task and return it
-    public Task rescheduleTask(String id, LocalDateTime nextExecutionTime) {
-        Task task = tasks.get(id);
-        if (task != null) {
-            task.setNextExecutionTime(nextExecutionTime);
-        }
+    public Task rescheduleTask(Long id, LocalDateTime nextExecutionTime) {
+        Task task = taskRepository.findById(id).orElse(null);
+        task.setNextExecutionTime(nextExecutionTime);
         return task;
+
+//        Task task = tasks.get(id);
+//        if (task != null) {
+//            task.setNextExecutionTime(nextExecutionTime);
+//        }
+//        return task;
     }
 
 }

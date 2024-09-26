@@ -5,18 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5aef6d-86c0-469d-905c-4e9109813018" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/taskscheduler/repository/TaskRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy-datasource.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/repository/TaskRepository_old.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TaskSchedulerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TaskSchedulerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/config/SampleDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/config/SampleDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/config/TaskSchedulerGraphQLConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/config/TaskSchedulerGraphQLConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/graphQLCheatSheet.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/graphQLCheatSheet.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/input/TaskInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/input/TaskInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/model/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/repository/TaskRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/resolver/TaskResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/resolver/TaskResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/taskscheduler/service/TaskService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/taskscheduler/resolver/TaskResolverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/taskscheduler/resolver/TaskResolverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/taskscheduler/repository/TaskRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/taskscheduler/repository/TaskRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +79,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -90,29 +97,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Gradle.TaskRepositoryTest.executor": "Run",
-    "Gradle.TaskRepositoryTest.testFetchTaskById.executor": "Run",
-    "Gradle.TaskResolverTest.executor": "Run",
-    "Gradle.TaskResolverTest.testGetTaskFromDataStore.executor": "Run",
-    "Gradle.TaskSchedulerAPI [:TaskSchedulerApplication.main()].executor": "Debug",
-    "Gradle.TaskSchedulerAPI [build].executor": "Run",
-    "Gradle.TaskSchedulerAPI [clean].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "/Users/preebas/gitRepos/TaskSchedulerAPI/TaskSchedulerAPI/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.TaskRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TaskRepositoryTest.testFetchTaskById.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TaskResolverTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TaskResolverTest.testGetTaskFromDataStore.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TaskSchedulerAPI [:TaskSchedulerApplication.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.TaskSchedulerAPI [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TaskSchedulerAPI [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/preebas/gitRepos/TaskSchedulerAPI/TaskSchedulerAPI/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/example/taskscheduler" />
@@ -286,40 +293,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/TaskSchedulerApplication.java</url>
           <line>8</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/repository/TaskRepository.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/service/TaskService.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/repository/TaskRepository.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/service/TaskService.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/resolver/TaskResolver.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/taskscheduler/resolver/TaskResolver.java</url>
-          <line>28</line>
-          <properties class="org.example.taskscheduler.resolver.TaskResolver" method="tasks">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

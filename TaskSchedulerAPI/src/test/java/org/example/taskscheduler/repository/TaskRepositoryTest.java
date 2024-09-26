@@ -18,15 +18,15 @@ class TaskRepositoryTest {
     @Autowired
     private TaskRepository taskRepository;
 
-    @Test
-    public void testFetchTaskById() {
-        Task task = taskRepository.findFirst().orElse(null);
-        assertNotNull(task, "Task should not be null");
-    }
+//    @Test
+//    public void testFetchTaskById() {
+//        Task task = taskRepository.findFirst().orElse(null);
+//        assertNotNull(task, "Task should not be null");
+//    }
 
     @Test
     void findAllTasks() {
-        List<Task> tasks = taskRepository.findAllTasks(Optional.of(TaskStatus.PENDING));
+        List<Task> tasks = taskRepository.findByStatus(TaskStatus.PENDING);
         assertEquals(2, tasks.size());
         tasks.forEach(System.out::println);
     }

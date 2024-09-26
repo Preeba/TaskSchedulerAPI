@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="671d5fc0-c8b5-480a-a8fc-3572e7707fb7" name="TaskSchedulerAPI" url="jdbc:h2:file:~/h2/TaskSchedulerAPI" driverClass="org.h2.Driver" />
+      <data-source id="cb933913-e3af-4465-b8cc-1823cf08fc97" name="testDB" url="jdbc:h2:mem:testdb" driverClass="org.h2.Driver" />
+    </data-sources>
+  </component>
+</project>
