@@ -2,6 +2,7 @@ package org.example.taskscheduler.resolver;
 
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import graphql.kickstart.tools.GraphQLQueryResolver;
+import graphql.schema.DataFetchingEnvironment;
 import org.example.taskscheduler.input.TaskInput;
 import org.example.taskscheduler.model.Task;
 import org.example.taskscheduler.model.TaskStatus;
@@ -22,7 +23,7 @@ public class TaskResolver implements GraphQLQueryResolver, GraphQLMutationResolv
     private TaskService taskService;
 
     @QueryMapping
-    public Task task(String id) {
+    public Task task(Long id) {
         return taskService.getTaskById(id);
     }
 
@@ -42,7 +43,7 @@ public class TaskResolver implements GraphQLQueryResolver, GraphQLMutationResolv
     }
 
     @MutationMapping
-    public Task updateTask(String id, TaskInput input) {
+    public Task updateTask(Long id, TaskInput input) {
         Task task = new Task();
         task.setName(input.getName());
         task.setDescription(input.getDescription());
@@ -53,17 +54,17 @@ public class TaskResolver implements GraphQLQueryResolver, GraphQLMutationResolv
     }
 
     @MutationMapping
-    public boolean deleteTask(String id) {
+    public boolean deleteTask(Long id) {
         return taskService.deleteTask(id);
     }
 
     @MutationMapping
-    public Task markTaskCompleted(String id) {
+    public Task markTaskCompleted(Long id) {
         return taskService.markTaskCompleted(id);
     }
 
     @MutationMapping
-    public Task rescheduleTask(String id, LocalDateTime nextExecutionTime) {
+    public Task rescheduleTask(Long id, LocalDateTime nextExecutionTime) {
         return taskService.rescheduleTask(id, nextExecutionTime);
     }
 }

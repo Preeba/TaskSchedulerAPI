@@ -3,15 +3,14 @@ package org.example.taskscheduler.config;
 import jakarta.annotation.PostConstruct;
 import org.example.taskscheduler.model.Task;
 import org.example.taskscheduler.model.TaskStatus;
-import org.example.taskscheduler.repository.TaskRepository;
-import org.example.taskscheduler.service.TaskService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.taskscheduler.repository.TaskRepository_old;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
 @Component
 public class SampleDataLoader {
+/*
 
     private TaskRepository taskRepo;
 
@@ -49,5 +48,6 @@ public class SampleDataLoader {
         taskRepo.save(task3);
         System.out.println("Sample data loaded!");
     }
+*/
 
 }
